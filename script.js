@@ -787,5 +787,18 @@ function initCookieBanner() {
         save({ essential: true, analytics: !!allowAnalytics });
     });
 }
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (keep all your existing code)
 
+    // --- Mobile Menu Toggle ---
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active'); // Optional: for styling the 'X' state
+        });
+    }
+});
 
