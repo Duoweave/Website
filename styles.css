@@ -1855,3 +1855,42 @@ body {
         margin-top: 1rem;
     }
 }
+
+/* =========================================
+   Mobile Footer Enhancements
+   ========================================= */
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-brand {
+        margin-bottom: 2.5rem; /* Increased spacing */
+    }
+
+    .footer-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Creates a two-column layout */
+        gap: 2rem; /* Adds space between columns and rows */
+        width: 100%;
+        text-align: left; /* Aligns text to the left within each column */
+    }
+
+    .footer-column {
+        margin-bottom: 0; /* Removes extra bottom margin */
+    }
+
+    .footer-column h4 {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        /* Optional: for very small screens, you could stack them again */
+        /* grid-template-columns: 1fr; */
+        /* text-align: center; */
+    }
+}
