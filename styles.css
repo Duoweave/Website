@@ -1682,4 +1682,176 @@ body {
     .stories-grid { grid-template-columns: 1fr; }
 }
 
+/* =========================================
+   Responsive Design - Media Queries
+   ========================================= */
 
+/* For tablets and smaller desktops */
+@media (max-width: 992px) {
+    .nav-container, .hero-container, .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .features-grid, .experiences-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .download-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .download-content, .download-cta {
+        max-width: 100%;
+    }
+
+    .download-cta {
+        margin-top: 3rem;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    /* -- Navigation -- */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjust based on navbar height */
+        left: 0;
+        width: 100%;
+        background-color: var(--background);
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* Show the hamburger menu */
+    }
+
+    /* -- Hero Section -- */
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    /* -- Features & Experiences -- */
+    .features-grid, .experiences-grid, .stories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-card {
+        margin-bottom: 1.5rem;
+    }
+
+    /* -- Screenshots Carousel -- */
+    .screenshot-carousel {
+        padding: 0;
+    }
+    .carousel-btn {
+        display: none; /* Hide arrows on mobile, rely on swipe */
+    }
+
+
+    /* -- Download Section -- */
+    .store-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .store-button {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .qr-codes {
+        justify-content: center;
+    }
+
+    /* -- Footer -- */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-brand {
+        margin-bottom: 2rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .footer-column {
+        margin-bottom: 2rem;
+    }
+
+    /* -- Cookie Banner -- */
+    .cookie-banner .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cookie-banner div:last-child {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .smart-banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .smart-banner-actions {
+        margin-top: 1rem;
+    }
+}
