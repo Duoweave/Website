@@ -1,4 +1,4 @@
-/* ===============================================
+﻿/* ===============================================
    DUOWEAVE WEBSITE STYLES
    Professional, Modern, Dynamic
    =============================================== */
@@ -1727,7 +1727,7 @@ body.no-scroll {
         top: 70px; /* Adjust based on navbar height */
         left: 0;
         width: 100%;
-        background-color: var(--background);
+        background: var(--bg-primary);
         padding: 1rem 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
@@ -1904,7 +1904,7 @@ body.no-scroll {
 
 /* --- 1. Fix Footer Light/Dark Mode --- */
 .footer {
-    background-color: var(--surface); /* Uses theme variable */
+    background: var(--bg-primary); /* Uses theme variable */
     color: var(--text-secondary);
     border-top: 1px solid var(--card-border);
 }
@@ -1993,7 +1993,7 @@ body.no-scroll {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        background-color: var(--surface);
+        background: var(--bg-primary);
         box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         z-index: 1000;
         transition: left 0.3s ease-in-out;
