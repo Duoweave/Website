@@ -1894,3 +1894,75 @@ body {
         /* text-align: center; */
     }
 }
+
+
+/* =========================================
+   UI Polish and Fixes
+   ========================================= */
+
+/* --- 1. Fix Footer Light/Dark Mode --- */
+.footer {
+    background-color: var(--surface); /* Uses theme variable */
+    color: var(--text-secondary);
+    border-top: 1px solid var(--card-border);
+}
+.footer h4 {
+    color: var(--text-primary);
+}
+
+/* --- 2. Header Logo Swapping --- */
+.logo-img-mobile {
+    display: none; /* Hidden by default */
+    max-height: 40px; /* Adjust size as needed */
+}
+.logo-img-desktop {
+    display: block; /* Visible by default */
+    max-height: 40px;
+}
+
+/* --- 3. Fix Cookie Banner Buttons --- */
+.cookie-banner .btn, .cookie-banner .btn-secondary, .cookie-banner .btn-primary {
+    flex: 1; /* Makes all buttons take up equal space */
+    text-align: center;
+    justify-content: center;
+}
+
+/* --- 4. Style New Footer Theme Toggle --- */
+.footer-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    gap: 1rem;
+}
+.theme-toggle-footer {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0;
+}
+.theme-toggle-footer:hover {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   Responsive Adjustments for New Features
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* Show mobile logo and hide desktop logo */
+    .logo-img-mobile {
+        display: block;
+    }
+    .logo-img-desktop {
+        display: none;
+    }
+
+    /* Center footer bottom content on mobile */
+    .footer-bottom-container {
+        justify-content: center;
+    }
+}
