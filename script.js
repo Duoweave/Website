@@ -45,10 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Slide-out mobile menu logic
     const toggleMenu = () => {
-        navLinks.classList.toggle('active');
+        const isOpen = navLinks.classList.toggle('active');
         navOverlay.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
+        mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     };
 
     if (mobileMenuToggle && navLinks && navOverlay) {
