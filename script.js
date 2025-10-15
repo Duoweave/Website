@@ -458,89 +458,46 @@ document.querySelectorAll('section[id]').forEach(section => {
     sectionObserver.observe(section);
 });
 
-// ===============================================
-// THEME TOGGLE & SYSTEM PREFERENCE DETECTION
-// ===============================================
-class ThemeManager {
-    constructor() {
-        this.themeToggle = document.getElementById('themeToggle');
-        this.sunIcon = document.getElementById('sunIcon');
-        this.moonIcon = document.getElementById('moonIcon');
-        this.currentTheme = this.getStoredTheme() || this.getSystemTheme();
-        
-        this.init();
+// --- Theme Toggle ---
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleText = document.getElementById('themeToggleText');
+
+// Function to apply the selected theme
+const applyTheme = (theme) => {
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if(themeToggleText) themeToggleText.textContent = 'Switch to Light Mode';
+    } else {
+        document.body.classList.remove('dark-mode');
+        if(themeToggleText) themeToggleText.textContent = 'Switch to Dark Mode';
     }
-    
-    init() {
-        // Set initial theme
-        this.setTheme(this.currentTheme);
-        
-        // Add event listener for theme toggle
-        if (this.themeToggle) {
-            this.themeToggle.addEventListener('click', () => {
-                this.toggleTheme();
-            });
-        }
-        
-        // Listen for system theme changes
-        if (window.matchMedia) {
-            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            mediaQuery.addEventListener('change', (e) => {
-                // Only auto-switch if user hasn't manually set a preference
-                if (!localStorage.getItem('theme')) {
-                    this.setTheme(e.matches ? 'dark' : 'light');
-                }
-            });
-        }
-    }
-    
-    getSystemTheme() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-        }
-        return 'light';
-    }
-    
-    getStoredTheme() {
-        return localStorage.getItem('theme');
-    }
-    
-    setTheme(theme) {
-        this.currentTheme = theme;
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        
-        // Update icons
-        if (theme === 'dark') {
-            this.sunIcon.style.display = 'none';
-            this.moonIcon.style.display = 'block';
-        } else {
-            this.sunIcon.style.display = 'block';
-            this.moonIcon.style.display = 'none';
-        }
-        
-        // Add smooth transition
-        document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-        setTimeout(() => {
-            document.body.style.transition = '';
-        }, 300);
-    }
-    
-    toggleTheme() {
-        const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-        this.setTheme(newTheme);
-        
-        // Track theme change
-        trackEvent('Theme', 'Toggle', newTheme);
-    }
+};
+
+// Event listener for the toggle button
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        const newTheme = isDarkMode ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
 }
 
-// Initialize theme manager when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new ThemeManager();
-    initSmartBanner();
-    initCookieBanner();
-});
+// Check for saved theme in localStorage on page load
+const savedTheme = localStorage.getItem('theme');
+// Check for user's OS preference
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Determine initial theme
+let initialTheme = 'light';
+if (savedTheme) {
+    initialTheme = savedTheme;
+} else if (prefersDark) {
+    initialTheme = 'dark';
+}
+
+// Apply the initial theme
+applyTheme(initialTheme);
 
 // ===============================================
 // FAQ ACCORDION
