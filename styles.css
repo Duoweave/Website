@@ -1966,3 +1966,70 @@ body {
         justify-content: center;
     }
 }
+
+/* =========================================
+   Slide-Out Mobile Navigation (Patreon-style)
+   ========================================= */
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 1001; /* Above other content */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Start off-screen */
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        padding-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--surface);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        left: 0; /* Slide into view */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-links a {
+        padding: 1rem 2rem;
+        display: block;
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+}
