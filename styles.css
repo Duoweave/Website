@@ -1682,4 +1682,26 @@ body {
     .stories-grid { grid-template-columns: 1fr; }
 }
 
+/* ===============================================
+   RESPONSIVE LOGO STYLES
+   =============================================== */
+.logo-img-mobile {
+    display: none; /* Hidden by default */
+    max-height: 40px; /* Adjust size as needed */
+}
+.logo-img-desktop {
+    display: block; /* Visible by default */
+    max-height: 40px;
+}
+
+@media (max-width: 768px) {
+    /* Show mobile logo and hide desktop logo */
+    .logo-img-mobile {
+        display: block;
+    }
+    .logo-img-desktop {
+        display: none;
+    }
+}
+
 
