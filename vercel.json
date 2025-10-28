@@ -6,50 +6,50 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/",
+      "destination": "/index.html"
     },
     {
-      "src": "/about",
-      "dest": "/about.html"
+      "source": "/about",
+      "destination": "/about.html"
     },
     {
-      "src": "/careers", 
-      "dest": "/careers.html"
+      "source": "/careers",
+      "destination": "/careers.html"
     },
     {
-      "src": "/press",
-      "dest": "/press.html"
+      "source": "/press",
+      "destination": "/press.html"
     },
     {
-      "src": "/contact",
-      "dest": "/contact.html"
+      "source": "/contact",
+      "destination": "/contact.html"
     },
     {
-      "src": "/terms",
-      "dest": "/terms.html"
+      "source": "/terms",
+      "destination": "/terms.html"
     },
     {
-      "src": "/privacy",
-      "dest": "/privacy.html"
+      "source": "/privacy",
+      "destination": "/privacy.html"
     },
     {
-      "src": "/cookies",
-      "dest": "/cookies.html"
+      "source": "/cookies",
+      "destination": "/cookies.html"
     },
     {
-      "src": "/community-guidelines",
-      "dest": "/community-guidelines.html"
+      "source": "/community-guidelines",
+      "destination": "/community-guidelines.html"
     },
     {
-      "src": "/dmca",
-      "dest": "/dmca.html"
+      "source": "/dmca",
+      "destination": "/dmca.html"
     },
     {
-      "src": "/data-protection",
-      "dest": "/data-protection.html"
+      "source": "/data-protection",
+      "destination": "/data-protection.html"
     }
   ],
   "headers": [
